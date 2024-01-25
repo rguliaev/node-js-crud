@@ -3,21 +3,21 @@ import { v4 as uuidv4 } from 'uuid';
 // in memory for now
 let users = []
 
-export const list = () => {
+const list = () => {
     return users
 }
 
-export const add = (user) => {
+const add = (user) => {
     const id = uuidv4()
     users.push({ id, ...user })
     return id
 }
 
-export const find = (id) => {
+const find = (id) => {
     return users.find(user => user.id === id)
 }
 
-export const update = (id, user) => {
+const update = (id, user) => {
     const existing = find(id)
     if (existing) {
         const updated = {id, ...user}
@@ -27,12 +27,17 @@ export const update = (id, user) => {
     return undefined
 }
 
-export const remove = (id) => {
+const remove = (id) => {
     users = users.filter(user => user.id !== id)
 }
 
-
-add({id: uuidv4(), name: 'user 1', age: 10})
+export const userRepo = {
+    list() { return list() },
+    add(user) { return add(user) },
+    find(id) { return find(id) },
+    update(id, user) { return update(id, user) },
+    remove(id) { return remove(id) },
+}
 
 
 
