@@ -1,7 +1,10 @@
 import express from 'express';
 import {userRepo} from "../database/database.js";
+import cors from "cors";
 
 export const userRouter = express.Router()
+userRouter.use(express.json())
+userRouter.use(cors())
 
 const respondWithUser = (user, res) => {
     user ? res.send(user) : res.sendStatus(400)
