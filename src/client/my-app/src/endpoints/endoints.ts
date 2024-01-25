@@ -14,19 +14,19 @@ export function list<R>(path: string): Promise<R[]> {
 	return client.get(api + path).then(res => res.data)
 }
 
-export function receive<R>(path: string, id: string): Promise<R> {
+export function retreive<R>(path: string, id: string): Promise<R> {
 	return client
 		.get(api + path + `/${id}`)
 		.then(res => res.data)
 }
 
-export function update<R, E>(path: string, id: string, data: any): Promise<R> {
+export function update<R>(path: string, id: string, data: any): Promise<R> {
 	return client
 		.put(api + path + `/${id}`, data)
 		.then(res => res.data)
 }
 
-export function create<R, E>(path: string, data: any): Promise<R> {
+export function create<R>(path: string, data: any): Promise<R> {
 	return client
 		.post(api + path, data)
 		.then(res => res.data)
