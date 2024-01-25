@@ -35,8 +35,8 @@ userRouter.delete('/:id', (req, res) => {
     const user = userRepo.find(req.params.id)
     if (user) {
         userRepo.remove(req.params.id)
-        res.send(204)
+        res.sendStatus(204)
     } else {
-        res.send(400)
+        res.sendStatus(400)
     }
 })

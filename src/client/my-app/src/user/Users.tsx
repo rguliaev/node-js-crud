@@ -30,7 +30,7 @@ export function Users() {
 
     const renderUsers = () => {
         return users.length > 0 ?
-            <table>
+            <table className="user-table">
                 <thead>
                 <tr>
                     <th>Id</th>
@@ -41,13 +41,13 @@ export function Users() {
                 </thead>
                 <tbody>
                 {users.map(user =>
-                    <tr>
+                    <tr key={user.id}>
                         <td>{user.id}</td>
                         <td>{user.name}</td>
                         <td>{user.age}</td>
                         <td>
-                            <button onClick={() => onAddEdit(user.id)}>Edit</button>
-                            <button onClick={() => onDelete(user.id)}>Delete</button>
+                            <button className="button button-default" onClick={() => onAddEdit(user.id)}>Edit</button>
+                            <button className="button button-danger" onClick={() => onDelete(user.id)}>Delete</button>
                         </td>
                     </tr>
                 )}
@@ -57,7 +57,8 @@ export function Users() {
     }
 
     return <>
-        <button onClick={() => onAddEdit(undefined)}>Add</button>
+        <h2>Users editor</h2>
+        <button className="button-default button mb-3" onClick={() => onAddEdit(undefined)}>Add</button>
         {renderUsers()}
         {showUser ? <UserEditor id={showUserId} onClose={onClose}/> : null}
     </>
