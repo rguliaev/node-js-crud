@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-data-node:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: nodejs
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+volumes:
+  postgres-data-node:

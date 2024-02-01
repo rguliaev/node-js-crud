@@ -1,10 +1,14 @@
 # node-js-crud
+
 An example CRUD app using Node.Js on the backend and React on the Frontend
 
 Few things are still to be done, but food first!
 
-### To start backend
-``node src/server/server.js``
+### Create docker volume and start postrgres
+`cd docker` `docker-compose up -d`
 
-### To start frontend
-``npm start --prefix src/client/my-app/``
+### Start backend
+`node src/server/server.js`
+
+### Start frontend
+`npm start --prefix src/client/my-app/`
